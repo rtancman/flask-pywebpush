@@ -1,5 +1,11 @@
 run:
-	python run.py
+	VAPID_PRIVATE_KEY_PATH=flaskwebpush/certs/private_key.txt VAPID_PUBLIC_PATH=flaskwebpush/certs/public_key.txt python run.py
+
+run.redis:
+	docker run --name "webpush-redis" -d --rm -p 6379:6379 redis:latest
+
+stop.redis:
+	docker kill webpush-redis
 
 setup:
 	pip install -r requirements.txt
