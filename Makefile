@@ -2,6 +2,9 @@ VAPID_CLAIM_PATH ?= flaskwebpush/certs/claim.json
 VAPID_PRIVATE_KEY_PATH ?= flaskwebpush/certs/private_key.txt
 VAPID_PUBLIC_PATH ?= flaskwebpush/certs/public_key.txt
 
+run.web:
+	cd web && yarn start
+
 run.api:
 	VAPID_CLAIM_PATH=$(VAPID_CLAIM_PATH) VAPID_PRIVATE_KEY_PATH=$(VAPID_PRIVATE_KEY_PATH) VAPID_PUBLIC_PATH=$(VAPID_PUBLIC_PATH) python run.py
 
@@ -13,6 +16,9 @@ stop.redis:
 
 setup:
 	pip install -r requirements.txt
+
+setup.web:
+	cd web && yarn install
 
 generate.vapid:
 	mkdir -p flaskwebpush/certs
