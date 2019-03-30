@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "d1dd1f12-c8d2-4791-8501-9ce0d4697b0a",
+		"name": "flaskwebpush",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/subscribe",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/subscribe",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"subscribe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/subscribe",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"subscription_info\": \"lala\",\n\t\"is_active\": true\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/subscribe",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"subscribe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/unsubscribe",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "WebPush eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJhdWQiOiJodHRwczovL3J0YW5jbWFuLmNvbS5iciIsImV4cCI6IjE1NTM5ODgwMTAiLCJzdWIiOiJtYWlsdG86cnRhbmNtYW5AZ21haWwuY29tIn0.S7ARY3KFqAmvGwVP7UeoivYjbZp9mlBIMf5fJSNeTVKx4e2qBCJGDWzE4-ynQjfJ7C62Gv6n2Z8YYV6NACj2Cw",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/unsubscribe",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"unsubscribe"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/notify",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "WebPush eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJhdWQiOiJodHRwczovL3J0YW5jbWFuLmNvbS5iciIsImV4cCI6IjE1NTM5ODgwMTAiLCJzdWIiOiJtYWlsdG86cnRhbmNtYW5AZ21haWwuY29tIn0.S7ARY3KFqAmvGwVP7UeoivYjbZp9mlBIMf5fJSNeTVKx4e2qBCJGDWzE4-ynQjfJ7C62Gv6n2Z8YYV6NACj2Cw",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"subscription_info\": \"lala\",\n\t\"is_active\": true,\n\t\"title\": \"Minha notificação!\",\n\t\"url\": \"http://localhost:8080/\",\n\t\"body\": \"O corpo da minha notificação com a menssagem.\"\n}"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/api/notify",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"notify"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
