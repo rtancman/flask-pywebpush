@@ -27,6 +27,8 @@ def subscribe():
     if request.method == "GET":
       return jsonify({'public_key': VAPID_PUBLIC_KEY})
 
+    print(request.json)
+
     subscription_info = {
       'endpoint': request.json.get('endpoint'),
       'keys': request.json.get('keys'),
@@ -39,6 +41,19 @@ def subscribe():
     redis_webpush.sadd('webpush:subscriptions', webpush_key)
 
     return jsonify({'id': webpush_key})
+
+
+@api.route('/unsubscribe', methods=['POST'])
+def unsubscribe():
+    webpush_key = request.json.get('client_uuid')
+
+    if not webpush_key:
+      return jsonify({'message': 'client_uuid is required'}), 400
+
+    redis_webpush.delete('webpush:subscription:info:{}'.format(webpush_key))
+    redis_webpush.srem('webpush:subscriptions', webpush_key)
+
+    return jsonify({'message': 'unsubscribed'})
 
 
 @api.route('/notify', methods=['POST'])
